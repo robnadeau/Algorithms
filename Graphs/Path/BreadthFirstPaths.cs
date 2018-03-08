@@ -1,20 +1,20 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Graphs.Path
 {
-    public class BreadthFirstSearch : IPaths
+    public class BreadthFirstPaths : IPaths
     {
         private bool[] marked;
         private int[] edgeTo;
         private readonly int s;
 
-        public BreadthFirstSearch(Graph graph, int s)
+        public BreadthFirstPaths(Graph graph, int s)
         {
             marked = new bool[graph.V];
             edgeTo = new int[graph.V];
             this.s = s;
         }
-        
+
         private void bfs(Graph graph, int s)
         {
             Queue<int> queue = new Queue<int>();
@@ -43,6 +43,24 @@ namespace Graphs.Path
         public IEnumerable<int> pathTo(int v)
         {
             throw new System.NotImplementedException();
+        }
+
+
+        public bool hasPathTo(int v)
+        {
+            return marked[v];
+        }
+
+        public IEnumerable<int> pathTo(int v)
+        {
+            if (!hasPathTo(v)) return null;
+            Stack<int> path = new Stack<int>();
+            for(int x = v; x!=s; x = edgeTo[x])
+            {
+                path.Push(x);
+            }
+            path.Push(s);
+            return path;
         }
     }
 }
