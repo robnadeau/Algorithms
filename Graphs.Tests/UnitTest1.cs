@@ -8,8 +8,10 @@ namespace Graphs.Tests
         [Fact]
         public void Test1()
         {
-            Console.WriteLine("test");
-
+            Graph g = new Graph(12);
+            Paths paths = new Paths(g,s);
+            for(int v = 0; v < g.V; v++)
+                Console.WriteLine(v);
         }
     }
 }
