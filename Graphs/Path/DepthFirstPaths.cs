@@ -7,7 +7,7 @@ namespace Graphs.Path
         private readonly int s;
         private bool[] marked;
         private int[] edgeTo;
-        public DepthFirstPaths(Graph graph, int s)
+        public DepthFirstPaths(UndirectedGraph graph, int s)
         {
             marked = new bool[graph.V];
             edgeTo = new int[graph.V];
@@ -32,7 +32,7 @@ namespace Graphs.Path
             return path;
         }
 
-        private void dfs(Graph graph, int v)
+        private void dfs(UndirectedGraph graph, int v)
         {
             marked[v] = true;
             foreach(int w in graph.adj(v))

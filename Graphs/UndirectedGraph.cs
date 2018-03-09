@@ -1,8 +1,8 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Graphs
 {
-    public class Graph
+    public class UndirectedGraph
     {
         private readonly List<int>[] _adj;
         public int V { get; }
@@ -19,7 +19,7 @@ namespace Graphs
         }
 
         //Creates an empty graph with V vertices
-        public Graph(int numberOfVertices)
+        public UndirectedGraph(int numberOfVertices)
         {
             this.V = numberOfVertices;
             _adj = new List<int>[numberOfVertices];
